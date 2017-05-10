@@ -5,6 +5,12 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  onClick(e) {
+    const { userId, dispatch } = this.props
+    dispatch({type: 'USER_FETCH_REQUESTED', payload: {userId}})
+  }
+
   render() {
     return (
       <div className="App">
