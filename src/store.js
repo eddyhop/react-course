@@ -5,13 +5,13 @@ import createSagaMiddleware from 'redux-saga'
 import rootReducer from './reducers'
 import rootSaga from './sagas'
 
-const configureStore = (preloadedState) => {
+const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
 
   const store = createStore(
     rootReducer,
-    preloadedState,
-    applyMiddleware(thunk, sagaMiddleware)
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    applyMiddleware(thunk, sagaMiddleware),
   )
 
   sagaMiddleware.run(rootSaga)

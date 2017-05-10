@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { BrowserRouter, IndexRoute, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import configureStore from './store'
 
-const preloadedState = window.__PRELOADED_STATE__
-const store = configureStore(preloadedState)
+const store = configureStore()
 
 import App from './components/app/App';
 import './index.css';
