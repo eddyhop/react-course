@@ -5,14 +5,19 @@ import React, { Component } from 'react';
 class SagaContainer extends Component {
 
   onClick(e) {
-    this.props.logIn('asdf@asdf.asdf', 'asdfasdf')
+    this.props.logIn('admin@asdf.asdf', 'asdf')
   }
 
   render() {
-    const { loading } = this.props
+    const { token, loading } = this.props
     return (
       <div>
         <h1>press dis button</h1>
+        { token ? 
+        <div>You have been logged in!</div>
+          :
+        <span></span>
+        }
         { loading ?
         <span>loading...</span>
           :
@@ -29,6 +34,7 @@ import { logIn } from '../../actions/auth'
 const mapStateToProps = (state) => {
   const auth_r = state.auth;
   return {
+    token: auth_r.token,
     loading: auth_r.loading
   }
 }
