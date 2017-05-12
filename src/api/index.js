@@ -1,4 +1,10 @@
 
-export function createRequest(url, request) {
-  return fetch(process.env.API_URL + url, request)
+import axios from 'axios'
+
+export function createRequest(request) {
+  return axios({
+    method: request.method,
+    url: process.env.REACT_APP_API_URL + request.url,
+    data: request.data
+  })
 }
