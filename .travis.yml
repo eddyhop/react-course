@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- 6.10.0
+script:
+- npm --silent test
+deploy:
+  provider: heroku
+  api_key:
+    secure: LsjNnYTA+dNkMyFc3ATEcG6HIExsS3/2ugsLWOrRbTW6slcGYxDOagx0+WhqE4TeS4t9Kz79Y5Xr+UBbCe9kvDmMkGPNy3574yRxjhtmSjcuuVuB1XVYEk8cVdXRkGizAjKfaoWZjKAeC24CV4zUjSxkMan9UQM5/HQcrQ4kIbNu1fNELl4DjpLmmNnMf50hSzHTXZUbFuMLD7ValaS6PB5BXFGkrSzlgnsi6iK00HKP3Od1QY8Zh5hZk7zJ3PnHPYgBOUFtAMqUdkQcF/Z05OzMADho3o+n+Fil3osSZQaYHkG6ifAzk2I+rNiKD97jUKQbqnkC4EjUWLfi6cCcIK0NLHcckzfePzjrhBbp6CH39HwLmfVcupfAWFXu7Z1Eor5/7kiAQweC8PfW3ebPPCDp6s1S453UDOw7pYLOpIwqpZFKsclON2cbyWBIJh4W+MJ96r8X5CD6qSsgd6jNRvDYIl/Mt01XzB3NvVu7e+HM15nEk1SHAPMNZ9GsIcAbZlOelZ2MS8lANcohPSFHCKeNdJnhp3ToD1InMnOOyYY9M1sRA7JKxleEhOH23LVyqnUTr+kOkN2hotT9CJ3rLAnuKiKJfKsC2pCw79Pm5iFe6XMvo4K07VP+/UFoC7mxEDKiHqnt3U38Va7+4GuAJTdZGhXjbk7LREktxtce6m4=
+  app: tk-react-app-2017
+  on:
+    repo: TeemuKoivisto/react-courseproject-2017-frontend
+notifications:
+  email:
+    on_success: never
+    on_failure: never

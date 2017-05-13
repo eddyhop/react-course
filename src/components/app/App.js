@@ -22,6 +22,7 @@ class App extends Component {
         <Jumbotron>
           <Grid>
             <h1>Welcome to React</h1>
+            <p>weee</p>
             <p>
               <Button
                 bsStyle="success"
