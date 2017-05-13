@@ -1,8 +1,14 @@
 // @flow
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class SagaContainer extends Component {
+
+  props: {
+    token: string,
+    loading: string,
+    logIn: (email: string, password: string) => void
+  }
 
   onClick(e) {
     this.props.logIn('admin@asdf.asdf', 'asdf')
@@ -24,7 +30,7 @@ class SagaContainer extends Component {
         <button onClick={this.onClick.bind(this)}>Log in</button>
         }
       </div>
-    );
+    )
   }
 }
 
@@ -32,10 +38,12 @@ import { connect } from 'react-redux'
 import { logIn } from '../../actions/auth'
 
 const mapStateToProps = (state) => {
-  const auth_r = state.auth;
+  const auth_r = state.get('auth')
   return {
-    token: auth_r.token,
-    loading: auth_r.loading
+    token: auth_r.get('token'),
+    loading: auth_r.get('loading')
+    // token: auth_r.get('token').toJS(),
+    // loading: auth_r.get('loading').toJS()
   }
 }
 

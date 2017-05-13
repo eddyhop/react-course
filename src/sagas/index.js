@@ -1,13 +1,12 @@
 import { all, fork, select, call, put, takeLatest } from 'redux-saga/effects'
 import { createRequest } from '../api';
 
-const getToken = (state) => state.auth.token
+const getToken = (state) => state.getIn(['auth', 'token'])
 
 function* callApi(action) {
   yield put({ type: `${action.type}_REQUEST` })
   try {
     const token = yield select(getToken)
-    console.log(token)
     const result = yield call(createRequest, action.payload.request, token)
     yield put({ type: `${action.type}_SUCCESS`, payload: result.data })
   } catch (err) {

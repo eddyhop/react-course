@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 
 import configureStore from './store'
 
-const store = configureStore()
+import App from './components/app/App'
+import './index.css'
 
-import App from './components/app/App';
-import './index.css';
+const store = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
@@ -17,4 +17,4 @@ ReactDOM.render(
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
-);
+)

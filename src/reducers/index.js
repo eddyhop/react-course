@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-immutablejs'
 import auth from './auth'
 
 const rootReducer = combineReducers({

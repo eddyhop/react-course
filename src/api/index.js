@@ -7,7 +7,7 @@ export function createRequest(request, token) {
     url: process.env.REACT_APP_API_URL + request.url,
     data: request.data,
     headers: {
-      Authorizationx: `Bearer ${token}`
+      Authorization: `Bearer ${token}`
     }
   })
 }
