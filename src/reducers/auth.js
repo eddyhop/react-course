@@ -2,7 +2,7 @@
 
 import { fromJS } from 'immutable'
 
-import { LOG_IN, LOG_OUT } from '../actions/auth'
+import { LOG_IN } from '../actions/auth'
 
 // type STATE = {
 //   user: Object,
@@ -31,8 +31,6 @@ export default function (state: Object = INITIAL_STATE, action: Object) {
       })
     case LOG_IN + '_FAIL':
       return state.setIn(["loading"], false)
-    case LOG_OUT:
-      return INITIAL_STATE;
     default:
       return state
   }

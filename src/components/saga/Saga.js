@@ -10,8 +10,12 @@ class SagaContainer extends Component {
     logIn: (email: string, password: string) => void
   }
 
-  onClick(e) {
-    this.props.logIn('admin@asdf.asdf', 'asdf')
+  onClick(type, e) {
+    if (type === 'login') {
+      this.props.logIn('admin@asdf.asdf', 'asdf')
+    } else if (type === 'logout') {
+      this.props.logOut();
+    }
   }
 
   render() {
@@ -20,14 +24,18 @@ class SagaContainer extends Component {
       <div>
         <h1>press dis button</h1>
         { token ? 
-        <div>You have been logged in!</div>
+        <div>
+          <p>You have been logged in!</p>
+          <button onClick={this.onClick.bind(this, "logout")}>Log out</button>
+        </div>
           :
-        <span></span>
-        }
-        { loading ?
-        <span>loading...</span>
-          :
-        <button onClick={this.onClick.bind(this)}>Log in</button>
+        <div>
+          { loading ?
+          <p>loading...</p>
+            :
+          <button onClick={this.onClick.bind(this, "login")}>Log in</button>
+          }
+        </div>
         }
       </div>
     )
@@ -35,7 +43,7 @@ class SagaContainer extends Component {
 }
 
 import { connect } from 'react-redux'
-import { logIn } from '../../actions/auth'
+import { logIn, logOut } from '../../actions/auth'
 
 const mapStateToProps = (state) => {
   const auth_r = state.get('auth')
@@ -53,6 +61,9 @@ const mapDispatchToProps = (dispatch) => ({
       email,
       password
     }))
+  },
+  logOut() {
+    dispatch(logOut())
   }
 })
 

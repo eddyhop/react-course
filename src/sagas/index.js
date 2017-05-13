@@ -1,7 +1,6 @@
 import { all, fork, select, call, put, takeLatest } from 'redux-saga/effects'
-import { createRequest } from '../api';
-
-const getToken = (state) => state.getIn(['auth', 'token'])
+import { createRequest } from '../api'
+import { getToken } from '../selectors'
 
 function* callApi(action) {
   yield put({ type: `${action.type}_REQUEST` })
@@ -14,15 +13,8 @@ function* callApi(action) {
   }
 }
 
-/*
-  Alternatively you may use takeLatest.
-
-  Does not allow concurrent fetches of user. If "USER_FETCH_REQUESTED" gets
-  dispatched while a fetch is already pending, that pending fetch is cancelled
-  and only the latest one will be run.
-*/
 function* takeLogIn() {
-  yield takeLatest('LOG_IN', callApi);
+  yield takeLatest('LOG_IN', callApi)
 }
 
 export default function* root() {
