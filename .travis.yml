@@ -1,8 +1,9 @@
 language: node_js
 node_js:
-- 6.10.0
+  - 6
 script:
-- npm --silent test
+  - npm test
+  - npm run build
 deploy:
   provider: heroku
   api_key:

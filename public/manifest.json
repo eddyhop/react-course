@@ -1,6 +1,8 @@
 {
   "short_name": "create-react-pwa",
   "name": "Create React PWApp",
+  "background_color": "cornflowerblue",
+  "theme_color": "cornflowerblue",
   "icons": [
     {
       "src": "favicon.ico",
