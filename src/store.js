@@ -8,6 +8,7 @@ import rootReducer from './reducers'
 import rootSaga from './sagas'
 
 import { windowReload } from './actions/window'
+import { clientOnline, clientOffline } from './actions/client'
 
 const immutableStoreConfig = {
   slicer: paths => state => (paths ? state.filter((v, k) => paths.indexOf(k) > -1) : state),
@@ -46,6 +47,23 @@ const configureStore = () => {
   window.onbeforeunload = function (e) {
     store.dispatch(windowReload())
   }
+
+  /**
+   * Creates an action when the local fetch failes aka. user is offline/online
+   */
+  window.asdf = setInterval(() => {
+    fetch('index.html') // name could be actuallyy anything, it doesn't fail if the resource doesn't exist eh
+    .then(res => {
+      if (store.getState().getIn(['client', 'online']) === false) {
+        store.dispatch(clientOnline())
+      }
+    })
+    .catch(err => {
+      if (store.getState().getIn(['client', 'online']) === true) {
+        store.dispatch(clientOffline())
+      }
+    })
+  }, 5000)
 
   return store
 }

@@ -16,19 +16,6 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
   })
 }
 
-window.addEventListener('load', function() {
-  console.log("adding event listeners")
-  window.addEventListener('online',  function(event) {
-    var condition = navigator.onLine ? "online" : "offline";
-    console.log("Event: " + event.type + "; Status: " + condition);
-  }, false);
-
-  window.addEventListener('offline',  function(event) {
-    var condition = navigator.onLine ? "online" : "offline";
-    console.log("Event: " + event.type + "; Status: " + condition);
-  }, false);
-});
-
 ReactDOM.render(
   <Provider store={store}>
     <Routes />
