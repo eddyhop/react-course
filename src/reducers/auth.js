@@ -3,6 +3,7 @@
 import { fromJS } from 'immutable'
 
 import { LOG_IN } from '../actions/auth'
+import { WINDOW_RELOAD } from '../actions/window'
 
 // type STATE = {
 //   user: Object,
@@ -30,6 +31,8 @@ export default function (state: Object = INITIAL_STATE, action: Object) {
         loading: false
       })
     case LOG_IN + '_FAIL':
+      return state.setIn(["loading"], false)
+    case WINDOW_RELOAD:
       return state.setIn(["loading"], false)
     default:
       return state

@@ -22,7 +22,7 @@ class FrontPage extends Component {
         <Jumbotron>
           <Grid>
             <h1>Welcome to React</h1>
-            <p>wooo</p>
+            <p>wuuuu</p>
             <p>
               <Button
                 bsStyle="success"
