@@ -1,4 +1,4 @@
-# Awesome React app with all the sweet tooling
+# Awesome React app with all the sweet tooling [![Build Status](https://travis-ci.org/TeemuKoivisto/react-courseproject-2017-frontend.svg?branch=master)](https://travis-ci.org/TeemuKoivisto/react-courseproject-2017-frontend)
 
 Scaffolded with [create-react-app](https://github.com/facebookincubator/create-react-app).
 

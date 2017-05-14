@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Grid, Navbar, Jumbotron, Button } from 'react-bootstrap';
+import { Grid, Jumbotron, Button } from 'react-bootstrap';
 
 import Saga from '../saga/Saga'
 
