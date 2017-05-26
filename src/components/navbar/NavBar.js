@@ -12,7 +12,7 @@ class NavBarContainer extends Component {
   }
 
   render() {
-    const { user, online, loading } = this.props
+    const { user, loading } = this.props
     return (
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
@@ -35,9 +35,9 @@ class NavBarContainer extends Component {
           </Nav>
             <Navbar.Text pullRight>
               { loading ? 
-              <i className="fa fa-refresh fa-spin fa-2x" aria-hidden="true"></i>
+              <i className="fa fa-refresh fa-spin fa-lg" aria-hidden="true"></i>
                 :
-              <i className="fa fa-refresh fa-2x" aria-hidden="true"
+              <i className="fa fa-refresh fa-lg" aria-hidden="true"
                 onClick={this.handleClick.bind(this, "refresh")}
               ></i>
               }
@@ -46,11 +46,6 @@ class NavBarContainer extends Component {
             <Navbar.Text pullRight>{ user.email }</Navbar.Text>
               :
             <Navbar.Text pullRight>Not Logged In</Navbar.Text>
-            }
-            { online ? 
-            <Navbar.Text pullRight>Online</Navbar.Text>
-              :
-            <Navbar.Text pullRight>Offline</Navbar.Text>
             }
         </Navbar.Collapse>
       </Navbar>
