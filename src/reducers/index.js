@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux-immutablejs'
 // import { combineReducers } from 'redux'
 import auth from './auth'
-import client from './client'
+import stuff from './stuff'
 
 import { LOG_OUT } from '../actions/auth'
 
 const combinedReducers = combineReducers({
   auth,
-  client,
+  stuff,
 })
 
 /**

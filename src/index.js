@@ -6,6 +6,7 @@ import configureStore from './store'
 import Routes from './routes'
 
 import 'bootstrap/dist/css/bootstrap.css'
+import 'font-awesome/css/font-awesome.css'
 import './index.css'
 
 const store = configureStore()

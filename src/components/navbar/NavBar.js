@@ -7,9 +7,12 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 class NavBarContainer extends Component {
 
+  handleClick(e) {
+    this.props.getLatestStuff()
+  }
+
   render() {
-    const { user, online } = this.props
-    console.log(online)
+    const { user, online, loading } = this.props
     return (
       <Navbar inverse collapseOnSelect>
         <Navbar.Header>
@@ -30,6 +33,15 @@ class NavBarContainer extends Component {
               <NavItem>HiddenPage</NavItem>
             </LinkContainer>
           </Nav>
+            <Navbar.Text pullRight>
+              { loading ? 
+              <i className="fa fa-refresh fa-spin fa-2x" aria-hidden="true"></i>
+                :
+              <i className="fa fa-refresh fa-2x" aria-hidden="true"
+                onClick={this.handleClick.bind(this, "refresh")}
+              ></i>
+              }
+            </Navbar.Text>
             { user ? 
             <Navbar.Text pullRight>{ user.email }</Navbar.Text>
               :
@@ -48,14 +60,15 @@ class NavBarContainer extends Component {
 
 import { connect } from 'react-redux'
 import { logIn, logOut } from '../../actions/auth'
+import { getLatestStuff } from '../../actions/stuff'
 
 const mapStateToProps = (state) => {
   const auth_r = state.get('auth')
   const user = auth_r.get('user') ? auth_r.get('user').toJS() : undefined
-  const client_r = state.get('client')
+  const stuff_r = state.get('stuff')
   return {
     user,
-    online: client_r.get('online')
+    loading: stuff_r.get('loading')
   }
 }
 
@@ -68,6 +81,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   logOut() {
     dispatch(logOut())
+  },
+  getLatestStuff() {
+    dispatch(getLatestStuff())
   }
 })
 
