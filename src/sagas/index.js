@@ -22,11 +22,11 @@ function* fakeApi(action) {
 }
 
 function* takeLogIn() {
-  yield takeLatest(['LOG_IN'], callApi)
+  yield takeLatest('LOG_IN', callApi)
 }
 
 function* simulateApi() {
-  yield takeLatest(['GET_LATEST_STUFF'], fakeApi)
+  yield takeLatest('GET_LATEST_STUFF', fakeApi)
 }
 
 export default function* root() {
